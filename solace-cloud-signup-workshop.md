@@ -39,7 +39,7 @@ This guide will walk you through setting up your **Solace Cloud Broker Trial Acc
 
    | **Field**         | **Value / Instruction**                                   |
    |--------------------|-----------------------------------------------------------|
-   | **Service Name**   | Choose a name like `apidays`                              |
+   | **Service Name**   | Choose a name like `workshop`                              |
    | **Environment**    | Keep the default: `Default`                               |
    | **Cloud**          | Select your provider (e.g., **AWS**)                      |
    | **Region**         | Choose the closest region (e.g., `eks-ap-southeast-4`)    |
