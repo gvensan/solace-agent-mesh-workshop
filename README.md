@@ -3,11 +3,12 @@
 Welcome to the **Solace Agent Mesh (SAM)** workshop! This repository contains comprehensive guides and resources to help you set up and explore SAM — Solace's innovative agent-based event-driven architecture platform.
 
 ---
-####               STAR the Solace Agent Mesh GitHub Repository!
-#### Take a moment to visit:
-#### https://github.com/SolaceLabs/solace-agent-mesh/
-#### And, hit that STAR button :)
-####
+##### 
+##### <center>STAR the Solace Agent Mesh GitHub Repository! </center>
+##### <center>Take a moment to visit:</center>
+##### <center>https://github.com/SolaceLabs/solace-agent-mesh/</center>
+##### <center>And, hit that STAR button :)</center>
+##### 
 --- 
 ## 🎯 Workshop Overview
 
