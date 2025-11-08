@@ -1,5 +1,15 @@
 # 🌐 Welcome to the Solace Agent Mesh Workshop
 
+---
+
+##### 
+##### <center>Before you proceed, STAR the Solace Agent Mesh GitHub Repository! </center>
+##### <center>Take a moment to visit:</center>
+##### <center>https://github.com/SolaceLabs/solace-agent-mesh/</center>
+##### <center>And, hit that STAR button :)</center>
+##### 
+
+---
 > **Before You Begin:**  
 > You’ll need a GitHub account to participate in this workshop.  
 > Don’t have one yet? Follow these quick steps:  
@@ -53,7 +63,7 @@ source venv/bin/activate
 pip install solace-agent-mesh
 ```
 
-### Step 5: Verify sam instalation
+### Step 5: Verify sam installation
 ```
 sam -v
 ```
@@ -97,7 +107,7 @@ In the opened web page, configure SAM.
   ![Sam Initialize - 3](sam/sam-init-3.png)
 
 4. Configure your LLM endpoint, API Key, and Model name
-> The model of choice impact the performance of your results and system behaviour. A performative model is recommended for advanced use-cases
+> The model of choice impacts the performance of your results and system behavior. A performant model is recommended for advanced use-cases
 
 - Choose **OpenAI Compatible Provider**
 - Set **LLM Endpoint URL** to `https://lite-llm.mymaas.net`
@@ -108,7 +118,7 @@ In the opened web page, configure SAM.
 5. Configure the orchestrator agent
 ![Sam Initialize - 5](sam/sam-init-5.png)
 
-> Keep all the configuration parameters as default. You can explore the other options for configuring the orchestrator agent to see what you have available for fine tuning the behaviour
+> Keep all the configuration parameters as default. You can explore the other options for configuring the orchestrator agent to see what you have available for fine tuning the behavior
 
 6. Configure the WebUI Gateway
 ![Sam Initialize - 6](sam/sam-init-6.png)
@@ -129,7 +139,7 @@ The sam-bootcamp folder will have the basic structure created, and you are all s
 
 1. Check installation:
    ```bash
-   sam -version
+   sam -v
    ```
 
 2. Start SAM:
@@ -164,7 +174,80 @@ You can visualize agent interactions (e.g., **Orchestrator ↔ LLM**) by clickin
 
 ---
 
-## ▶️ 6. Install Agents
+## ▶️ 6. Install Built-in Tools (Agents)
+
+While Solace Agent Mesh is running in the current terminal, open a **new terminal** and launch the plugin catalog to add new agents.
+
+![SAM New Terminal](sam/sam-new-terminal.png)
+
+Solace Agent Mesh comes with a set of built-in tools. Built-in tools are pre-packaged functionalities that can be granted to agents without requiring custom Python code. These tools address common operations such as file management, data analysis, web requests, and multi-modal generation.
+
+### Steps
+
+1. In the terminal, navigate to your SAM workspace and activate the environment:
+   ```bash
+   cd sam-bootcamp
+   source venv/bin/activate
+   ```
+
+2. Run the following command to add a new agent:
+   ```bash
+   sam add agent --gui
+   ```
+> **NOTE**: The opened page might show the SAM installation GUI - just add the URI element `?config_mode=addAgent` to the end of the URL. 
+For example: The opened page URL `https://glorious-bassoon-j79qgqjxgrh996-5002.app.github.dev/`, change it to `https://glorious-bassoon-j79qgqjxgrh996-5002.app.github.dev/?config_mode=addAgent`
+
+- Name the agent as `Builtin Tools` and click on `Next`
+![SAM Built-in Tools](sam/sam-builtin-1.png)
+- Use the default setting and click on `Next`
+![SAM Built-in Tools](sam/sam-builtin-2.png)
+- Use the default setting and click on `Next`
+![SAM Built-in Tools](sam/sam-builtin-3.png)
+- Click on `+ Add Tool` button and add the following tools
+![SAM Built-in Tools](sam/sam-builtin-4.png)
+- Review the list of tools available for use
+![SAM Built-in Tools](sam/sam-builtin-5.png)
+- Select the following tools and add
+  + Data Analysis
+  + General
+  + Internal
+  + Web
+Click on `Next`
+![SAM Built-in Tools](sam/sam-builtin-6.png)
+- Leave default settings and click on `Next`
+![SAM Built-in Tools](sam/sam-builtin-7.png)
+- Review the agent summary configuration and click on `Save Agent & Finish`
+![SAM Built-in Tools](sam/sam-builtin-8.png)
+- Let us review the Agents. In the SAM browser tab, click on `Agents` to see the newly added agent.
+![SAM Built-in Tools](sam/sam-builtin-10.png)
+
+>**NOTE:** The newly added agent needs to be started. Either you can stop the `sam run` process with `Ctrl+C` and launch `sam run`, which will start all the agents.
+Alternatively, you can launch the agents independently - open a new terminal and pass the agent configuration YAML files as arguments to the `sam run` command.
+> - Open a new terminal
+> - Activate the environment 
+      `cd sam-bootcamp`
+      `source venv/bin/activate`
+> - Launch the agents
+      `sam run config/agents/sam_geo_information.yaml config/agents/sam_mermaid.yaml config/agents/find_my_ip.yaml`
+
+2. Let us test the use of these agents. In the Chat, enter a simple query
+   ```bash
+   What agents do you have access to and what are their capabilities?
+   ```
+![SAM Built-in Tools](sam/sam-builtin-11.png)
+> **HINT:** If the workflow panel is not visible, just click on the network image !at the bottom of the chat panel (left) 
+![SAM Built-in Tools](sam/sam-builtin-12.png) 
+
+3. Let us issue a query that makes use of the built-in tools.
+   ```bash
+   Summarize the capabilities of the agent with sample queries as a HTML report
+   ```
+You will see an HTML report listing agentic capabilities available.
+![SAM Built-in Tools](sam/sam-builtin-13.png) 
+
+---
+
+## ▶️ 7. Install Agents (Contributed)
 
 While Solace Agent Mesh is running in the current terminal, open a **new terminal** and launch the plugin catalog to add new agents.
 
@@ -194,6 +277,9 @@ Solace provides a set of reusable, open-source agents. SAM makes it easy to inst
 
    This opens the catalog portal in your browser (typically `http://127.0.0.1:5003/?config_mode=pluginCatalog`).  
    ![SAM Plugin Catalog](sam/sam-plugin-catalog.png)
+> **NOTE**: The opened page might show the SAM installation GUI - just add the URI element `?config_mode=pluginCatalog` to the end of the URL. 
+For example: The opened page URL `https://glorious-bassoon-j79qgqjxgrh996-5002.app.github.dev/`, change it to `https://glorious-bassoon-j79qgqjxgrh996-5002.app.github.dev/?config_mode=pluginCatalog`
+
 
 3. Review available agents and their capabilities by clicking **More** on each tile.
 
@@ -212,30 +298,17 @@ Solace provides a set of reusable, open-source agents. SAM makes it easy to inst
    - `sam_mermaid`  
    - `find_my_ip`  
 
-> Give each agent a meaningful name (e.g., use hyphens instead of underscores).
+> **HINT:** Use the same name as the plugin for the agent name.
 
-When done, you can close the SAM catalog tab and stop the process with `Ctrl+C`.
+>**NOTE:** When done, you can close the SAM catalog tab and stop the process with `Ctrl+C` and launch `sam run`, which will start all the agents.
+Alternatively, you can launch the agents independently - open a new terminal and pass the agent configuration YAML files as arguments to the `sam run` command.
+> - Open a new terminal
+> - Activate the environment 
+      `cd sam-bootcamp`
+      `source venv/bin/activate`
+> - Launch the agents
+      `sam run config/agents/sam_geo_information.yaml config/agents/sam_mermaid.yaml config/agents/find_my_ip.yaml`
 
----
-
-## ▶️ 7. Running Agents
-
-You have two options:
-
-a) **Restart SAM:**  
-   Stop the process with `Ctrl+C` and run again:  
-   ```bash
-   sam run
-   ```
-
-b) **Run agents individually:**  
-   ```bash
-   sam run <agent_yaml_file>
-   ```
-
-This allows agents to run independently — even on different machines — much like microservices.
-
-For this lab, stop the current process and restart SAM in the first terminal.
 
 ---
 
@@ -293,6 +366,14 @@ You’ve successfully:
 > 🧠 Next step: Try deploying additional agents and experiment with **Agent-to-Agent (A2A)** communication.
 
 ---
+##### 
+##### <center>If you have not STARRED already, take a moment to visit:</center>
+##### <center>https://github.com/SolaceLabs/solace-agent-mesh/</center>
+##### <center>And, hit that STAR button :)</center>
+##### 
+
+
+---
 
 ### 📚 Additional Resources
 
@@ -308,3 +389,4 @@ Ask during the workshop or visit [Solace Agent Mesh Documentation](https://solac
 ---
 
 *© 2025 Solace Developer Workshops — For educational use only.*
+
