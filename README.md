@@ -9,6 +9,18 @@ Welcome to the **Solace Agent Mesh (SAM)** workshop! This repository contains co
 ##### <center>https://github.com/SolaceLabs/solace-agent-mesh/</center>
 ##### <center>And, hit that STAR button :)</center>
 ##### 
+
+
+---
+## IMPORTANT URLS
+
+##### - [Solace Workshop](https://github.com/SolaceDev/solace-developer-workshops/)
+##### - [Solace Agent Mesh](https://github.com/solacelabs/solace-agent-mesh)
+##### - [Solace Agent Mesh Docs](https://solacelabs.github.io/solace-agent-mesh/docs/documentation/getting-started/introduction/)
+##### - [Solace Agent Mesh Core Plugins](https://github.com/SolaceLabs/solace-agent-mesh-core-plugins)
+##### - [Solace Agent Mesh Community Plugins](https://github.com/solacecommunity/solace-agent-mesh-plugins/)
+
+
 --- 
 ## 🎯 Workshop Overview
 
